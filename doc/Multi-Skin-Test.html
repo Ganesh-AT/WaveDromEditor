@@ -1,0 +1,157 @@
+<html>
+<header>
+	<script src="../skins/default.js"></script>
+        <script src="../skins/narrow.js"></script>
+        <script src="../skins/lowkey.js"></script>
+        <script src="../wavedrom.min.js"></script> 
+</header>
+<body onload="WaveDrom.ProcessAll()">
+
+<h2>Default Skin Test</h2>
+
+<p>
+<script type="WaveDrom">
+{
+  config: {
+    skin: 'default', hscale: 1, marks: false, hbounds: [0,15], fit2pane: false, wrapSvgInImg: false
+  },
+  signal: [
+    {node       : '....<.>.<.>.<.>D<.>E....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>U<.>D....', phase: 0.1,},
+    {name: 'SCK', wave: '0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0', period: 1, phase: 0.1, 
+     node       : '....<.>A<.>B<.>C.....',
+     node_tlevel: '....<.>5<.>0<.>0.....',
+     node_tpos  : '....<.>m<.>d<.>u.....',
+    },
+    { phase: 0.1, 
+     node       : '....<.>.<.>H<.>I.....',
+     node_tlevel: '....<.>.<.>0<.>0.....',
+     node_tpos  : '....<.>.<.>D<.>U.....',},
+    {name: 'CS#', wave: '0.............1.', phase: -0.25, overrideGapsPhase: -0.5},
+    {phase: 0.1, 
+     node       : '....<.>J<.>.<.>......',
+     node_tlevel: '....<.>5<.>.<.>......',
+     node_tpos  : '....<.>m<.>.<.>......',},
+    {name: 'SO', wave:'z.<x>=.<.x>=.<.x>=.<.x>=.<.x>=', phase: -0.7, node: '.....<.>K.....', data:['','','','LSB OUT'] },
+    {},
+    {node       : '....<.>.<.>.<.>F<.>G....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>u<.>d....', phase: 0.1, overlayOnLane: 1},
+    {phase: -0.7, node: '.....<.>L.....', overlayOnLane: 4},
+    {wave: '<0>', overlayOnLane: 1},
+    {wave: '<0>', overlayOnLane: 3},
+    {wave: 'z', overlayOnLane: 5},
+  ],
+  edge:[
+    'A-J','K-L',
+    'J<->L t<sub>V</sub>',
+    'B-H','C-I',
+    'H<->I t<sub>WL</sub>',
+    'D-F','E-G',
+    'D<->E t<sub>WH</sub>'
+  ],
+  gaps: '. . . . . . . . . . s'
+}
+</script>
+</p>
+
+
+<h2>Lowkey Skin Test</h2>
+
+<p>
+<script type="WaveDrom">
+{
+  config: {
+    skin: 'lowkey', hscale: 1, marks: false, hbounds: [0,15], fit2pane: false, wrapSvgInImg: false
+  },
+  signal: [
+    {node       : '....<.>.<.>.<.>D<.>E....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>U<.>D....', phase: 0.1,},
+    {name: 'SCK', wave: '0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0', period: 1, phase: 0.1, 
+     node       : '....<.>A<.>B<.>C.....',
+     node_tlevel: '....<.>5<.>0<.>0.....',
+     node_tpos  : '....<.>m<.>d<.>u.....',
+    },
+    { phase: 0.1, 
+     node       : '....<.>.<.>H<.>I.....',
+     node_tlevel: '....<.>.<.>0<.>0.....',
+     node_tpos  : '....<.>.<.>D<.>U.....',},
+    {name: 'CS#', wave: '0.............1.', phase: -0.25, overrideGapsPhase: -0.5},
+    {phase: 0.1, 
+     node       : '....<.>J<.>.<.>......',
+     node_tlevel: '....<.>5<.>.<.>......',
+     node_tpos  : '....<.>m<.>.<.>......',},
+    {name: 'SO', wave:'z.<x>=.<.x>=.<.x>=.<.x>=.<.x>=', phase: -0.7, node: '.....<.>K.....', data:['','','','LSB OUT'] },
+    {},
+    {node       : '....<.>.<.>.<.>F<.>G....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>u<.>d....', phase: 0.1, overlayOnLane: 1},
+    {phase: -0.7, node: '.....<.>L.....', overlayOnLane: 4},
+    {wave: '<0>', overlayOnLane: 1},
+    {wave: '<0>', overlayOnLane: 3},
+    {wave: 'z', overlayOnLane: 5},
+  ],
+  edge:[
+    'A-J','K-L',
+    'J<->L t<sub>V</sub>',
+    'B-H','C-I',
+    'H<->I t<sub>WL</sub>',
+    'D-F','E-G',
+    'D<->E t<sub>WH</sub>'
+  ],
+  gaps: '. . . . . . . . . . s'
+}
+</script>
+</p>
+
+
+<h2>Narrow Skin Test</h2>
+
+<p>
+<script type="WaveDrom">
+{
+  config: {
+    skin: 'narrow', hscale: 1, marks: false, hbounds: [0,15], fit2pane: false, wrapSvgInImg: false
+  },
+  signal: [
+    {node       : '....<.>.<.>.<.>D<.>E....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>U<.>D....', phase: 0.1,},
+    {name: 'SCK', wave: '0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0<.>1<.>0', period: 1, phase: 0.1, 
+     node       : '....<.>A<.>B<.>C.....',
+     node_tlevel: '....<.>5<.>0<.>0.....',
+     node_tpos  : '....<.>m<.>d<.>u.....',
+    },
+    { phase: 0.1, 
+     node       : '....<.>.<.>H<.>I.....',
+     node_tlevel: '....<.>.<.>0<.>0.....',
+     node_tpos  : '....<.>.<.>D<.>U.....',},
+    {name: 'CS#', wave: '0.............1.', phase: -0.25, overrideGapsPhase: -0.5},
+    {phase: 0.1, 
+     node       : '....<.>J<.>.<.>......',
+     node_tlevel: '....<.>5<.>.<.>......',
+     node_tpos  : '....<.>m<.>.<.>......',},
+    {name: 'SO', wave:'z.<x>=.<.x>=.<.x>=.<.x>=.<.x>=', phase: -0.7, node: '.....<.>K.....', data:['','','','LSB OUT'] },
+    {},
+    {node       : '....<.>.<.>.<.>F<.>G....',
+     node_tlevel: '....<.>.<.>.<.>a<.>a....',
+     node_tpos  : '....<.>><.>.<.>u<.>d....', phase: 0.1, overlayOnLane: 1},
+    {phase: -0.7, node: '.....<.>L.....', overlayOnLane: 4},
+    {wave: '<0>', overlayOnLane: 1},
+    {wave: '<0>', overlayOnLane: 3},
+    {wave: 'z', overlayOnLane: 5},
+  ],
+  edge:[
+    'A-J','K-L',
+    'J<->L t<sub>V</sub>',
+    'B-H','C-I',
+    'H<->I t<sub>WL</sub>',
+    'D-F','E-G',
+    'D<->E t<sub>WH</sub>'
+  ],
+  gaps: '. . . . . . . . . . s'
+}
+</script>
+</p>
