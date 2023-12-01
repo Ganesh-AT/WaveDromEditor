@@ -1,0 +1,106 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with WaveDrom -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svgcontent_0" height="100%" width="100%" viewBox="0 0 270 60" overflow="hidden" class="WaveDrom">
+    <style type="text/css">
+        text {
+            font-size: 11pt;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            text-align: center;
+            fill-opacity: 1;
+            font-family: Helvetica;
+        }
+        .gmarks {
+            stroke: #888;
+            stroke-width: 0.5;
+            stroke-dasharray: 1, 3;
+        }
+        .background {
+            stroke: none;
+            fill: white;
+        }
+        .info {
+            fill: #0041c4;
+        }
+        .s_wd_default_1 {
+            fill: none;
+            stroke: #000;
+            stroke-width: 1;
+            stroke-linecap: round;
+            stroke-linejoin: miter;
+            stroke-miterlimit: 4;
+            stroke-opacity: 1;
+            stroke-dasharray: none;
+        }
+    </style>
+    <defs>
+        <g id="wd_default_000"><path d="m0,20 20,0" class="s_wd_default_1" /></g>
+        <g id="wd_default_0m1"><path d="M0,20 3,20 9,0 20,0" class="s_wd_default_1" /></g>
+        <g id="wd_default_111"><path d="M0,0 20,0" class="s_wd_default_1" /></g>
+        <g id="wd_default_1m0"><path d="m0,0 3,0 6,20 11,0" class="s_wd_default_1" /></g>
+    </defs>
+    <g id="waves_0">
+        <rect width="270" height="60" class="background" />
+        <g transform="translate(80.5,0.5)" id="lanes_0">
+            <g id="gmarks_0">
+                <g class="gmarks">
+                    <line id="gmark_0_0" x1="0" y1="0" x2="0" y2="60" />
+                    <line id="gmark_1_0" x1="40" y1="0" x2="40" y2="60" />
+                    <line id="gmark_2_0" x1="80" y1="0" x2="80" y2="60" />
+                    <line id="gmark_3_0" x1="120" y1="0" x2="120" y2="60" />
+                    <line id="gmark_4_0" x1="160" y1="0" x2="160" y2="60" />
+                    <line id="gmark_5_0" x1="200" y1="0" x2="200" y2="60" />
+                </g>
+            </g>
+            <g transform="translate(0,5)" id="wavelane_0_0">
+                <text x="-10" y="15" class="info lane_label" text-anchor="end" xml:space="preserve"><tspan>CLK_NP</tspan></text>
+                <g id="wavelane_draw_0_0" clip-path="polygon(0 -2, 4000000000020 -2, 4000000000020 22, 0 22)">
+                    <use xlink:href="#wd_default_000" />
+                    <use transform="translate(20)" xlink:href="#wd_default_000" />
+                    <use transform="translate(40)" xlink:href="#wd_default_0m1" />
+                    <use transform="translate(60)" xlink:href="#wd_default_111" />
+                    <use transform="translate(80)" xlink:href="#wd_default_1m0" />
+                    <use transform="translate(100)" xlink:href="#wd_default_000" />
+                    <use transform="translate(120)" xlink:href="#wd_default_0m1" />
+                    <use transform="translate(140)" xlink:href="#wd_default_111" />
+                </g>
+            </g>
+            <g transform="translate(0,35)" id="wavelane_1_0">
+                <text x="-10" y="15" class="info lane_label" text-anchor="end" xml:space="preserve"><tspan>CLK_P</tspan></text>
+                <g transform="translate(-10)" id="wavelane_draw_1_0" clip-path="polygon(10 -2, 4000000000030 -2, 4000000000030 22, 10 22)">
+                    <use xlink:href="#wd_default_000" clip-path="polygon(10 -2, 20 -2, 22 22, 10 22)" />
+                    <use transform="translate(20)" xlink:href="#wd_default_000" />
+                    <use transform="translate(40)" xlink:href="#wd_default_0m1" />
+                    <use transform="translate(60)" xlink:href="#wd_default_111" />
+                    <use transform="translate(80)" xlink:href="#wd_default_1m0" />
+                    <use transform="translate(100)" xlink:href="#wd_default_000" />
+                    <use transform="translate(120)" xlink:href="#wd_default_0m1" />
+                    <use transform="translate(140)" xlink:href="#wd_default_111" />
+                </g>
+            </g>
+        </g>
+    </g>
+    <metadata id="WaveJS">
+        <!--// WaveJS rendered using WaveDrom version 3.2.0
+
+{
+  config: {fit2pane: true, marks: true},
+  signal:[
+    {name: 'CLK_NP', wave: '0101'},
+    {name: 'CLK_P', wave: '0101', phase: 0.25},
+  ]
+}
+E25 - same hw T500
+consumer market - broad spectrum of products
+firmware optimization, 
+first 232L in perf client OEM space in industry
+saturated Gen 4 x4
+bin characteristics
+5yr warranty - intro by Samsung
+consumer workload - can sustain 5 years, but workstation workload can reach 1200 TBW faster
+-->
+    </metadata>
+</svg>
