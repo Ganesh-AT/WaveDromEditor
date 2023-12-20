@@ -8,60 +8,121 @@
         <link rel="stylesheet" href="css/dialog.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="manifest" href="./manifest.json">
-        <!-- Expires: 2020-09-29 -->
-        <meta http-equiv="origin-trial" content="Am6ESaxxizmFrymZ2dfVBjueIKm0EM8AXy67E5TvX0TdHsAfjD6dVS58HwNdotsiKuI6Z0xzpEd02QFBbLO5HgYAAABqeyJvcmlnaW4iOiJodHRwczovL3dhdmVkcm9tLmNvbTo0NDMiLCJmZWF0dXJlIjoiTmF0aXZlRmlsZVN5c3RlbTIiLCJleHBpcnkiOjE2MDE0MjM5OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
 
         <script src="scripts/codemirror-compressed.js"></script>
         <script src="scripts/lodash.min.js"></script>
+        <script src="scripts/svg-to-pdfkit/pdfkit.js"></script>
+        <script src="scripts/svg-to-pdfkit/blobstream.js"></script>
+        <script src="scripts/svg-to-pdfkit/source.js"></script>
         <script src="skins/default.js"></script>
         <script src="skins/dark.js"></script>
         <script src="skins/narrow.js"></script>
         <script src="skins/lowkey.js"></script>
-        <script src="wavedrom.min.js"></script>
+        <script src="skins/professional.js"></script>
+        <script src="skins/professional_temp.js"></script>
+        <script src="skins/professional_srf.js"></script>
+        <script src="skins/professional_sharpz.js"></script>
+        <script src="wavedrom.min.js"></script> 
         <script src="editor.js"></script>
     </head>
 
     <body onload="WaveDrom.editorInit()" onclick="WaveDrom.menuOpen(event)">
         <div id="content">
+
             <div class="toolbar">
                 <img class="button" alt="Memu" id="Menu" title="Menu" src="images/ic_menu.png"/>
             </div>
             <div style="display:none;" class="menu" id="menux">
-                <div id="version" align="right">v?.?.?</div>
+                <div id="version" align="right">
+                    v?.?.?
+                </div>
                 <ul>
-                    <!--li>New</li>
-                    <li>Open...</li>
-                    <li>Save</li-->
-                    <li onclick="WaveDrom.loadJSON(event)"> <img class="button" src="images/ic_upload_json.png"/> Load... </li>
-                    <li onclick="WaveDrom.saveJSON(event)"> <img class="button" src="images/ic_download_json.png"/> Save As... </li>
-                    <li onclick="WaveDrom.saveSVG(event)"> <img class="button" src="images/ic_download_svg.png"/> Export SVG... </li>
-                    <li onclick="WaveDrom.savePNG(event)"> <img class="button" src="images/ic_download_png.png"/> Export PNG... </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({id:'impmenu'})">
+                        <img class="button" src="images/ic_upload_json.png"/> Import... 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({id:'expmenu'})"> 
+                        <img class="button" src="images/ic_download_png.png"/> Export... 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})" 
+                        onclick="WaveDrom.editorState({rot:1})"> 
+                            <img class="button" src="images/ic_rot.png" /> Rotate Layout 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})"  
+                        onclick="WaveDrom.editorState({per:1})"> 
+                            <img class="button" src="images/ic_persent.png" /> Proportions 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})"  
+                        onclick="WaveDrom.setFullURL()"> 
+                            <img class="button" src="images/ic_url.png"/> Expand URL 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})"  
+                        onclick="WaveDrom.setPreferences()"> 
+                            <img class="button" src="images/ic_settings.png"/> Settings 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})"  
+                        onclick="WaveDrom.gotoWaveDromGuide()" id="WaveDromGuide"> 
+                            <img class="button" src="images/ic_guide.png"/> WaveDrom Guide 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})"  
+                        onclick="WaveDrom.gotoWaveDromHome()"  id="WaveDromHome"> 
+                        <img class="button" src="images/ic_logo.png"/> on GitHub 
+                    </li>
+                    <li onmouseover="WaveDrom.handleSubMenu({op:'closeall'})" style="display:none;">
+                        Exit
+                    </li>
                 </ul>
-                <ul>
-                    <li onclick="WaveDrom.editorState({rot:1})"> <img class="button" src="images/ic_rot.png" /> Rotate Layout </li>
-                    <li onclick="WaveDrom.editorState({per:1})"> <img class="button" src="images/ic_persent.png" /> Proportions </li>
-                    <li onclick="WaveDrom.setFullURL()"> <img class="button" src="images/ic_url.png"/> Expand URL </li>
-                    <li onclick="WaveDrom.gotoWaveDromGuide()" id="WaveDromGuide"> <img class="button" src="images/ic_guide.png"/> WaveDrom Guide </li>
-                    <li onclick="WaveDrom.gotoWaveDromHome()"  id="WaveDromHome"> <img class="button" src="images/ic_logo.png"/> on GitHub </li>
-                    <li style="display:none;">Exit</li>
-                </ul>
+            </div>
+            <div style="display:none;" class="submenu-imp" id="impmenu">
+                <ul class="submenu">
+                    <li onclick="WaveDrom.loadJSON(event)"><img class="button" src="images/ic_upload_json.png"/> Load JSON  </li>
+                    <li onclick="WaveDrom.loadSVG(event)"><img class="button" src="images/ic_upload_json.png"/> Load SVG  </li>
+                </ul>                    
+            </div>
+            <div style="display:none;" class="submenu-exp" id="expmenu">
+                <ul class="submenu">
+                    <li onclick="WaveDrom.saveJSON(event)"><img class="button" src="images/ic_download_json.png"/> Save JSON  </li>
+                    <li onclick="WaveDrom.saveSVG(event)"><img class="button" src="images/ic_download_svg.png"/> Save SVG  </li>
+                    <li onclick="WaveDrom.savePNG(event)"><img class="button" src="images/ic_download_svg.png"/> Save PNG  (!Beta)</li>
+                    <li onclick="WaveDrom.savePDF(event)"><img class="button" src="images/ic_download_svg.png"/> Save PDF (!Beta)  </li>
+                </ul>                    
+            </div>
+            <div style="display:none;" class="settingsbox" id="WaveDromEditorPrefs">
+                <input type="checkbox" id="optimizeSVGCbox" name="optimizeSVG" value="true">
+                    <label for="optimizeSVGCbox">&emsp;Optimize SVG before Download</label>
+                <br/>
+                <input type="checkbox" id="includeWaveJSCbox" name="includeWaveJS" value="true">
+                    <label for="includeWaveJSCbox">&emsp;Embed WaveJS in SVG Metadata</label>
+                <br/><br/>
+                <br/>
+                <form class="slidecontainer">
+                    <input type="range" min="1" max="100" value="10" class="slider" id="pngexpqual">
+                        <label for="pngexpqual">&emsp;PNG Export Quality</label>
+                        <output for="pngexpqual" onforminput="value = pngexpqual.valueAsNumber;"></output>
+                </form>
+                <br/<br/><br/>
+                <div style="text-align:center;width:100%">
+                    <button id="closeSettings">Close</button>
+                </div>
             </div>
             <input style="display:none;" id="fileDialogLoad" type="file" />
             <input style="display:none;" id="fileDialogSave" type="file" nwsaveas="wavedrom.json" />
             <input style="display:none;" id="fileDialogSVG" type="file" nwsaveas="wavedrom.svg" />
             <input style="display:none;" id="fileDialogPNG" type="file" nwsaveas="wavedrom.png" />
-            <div id="SVG"><div id="SVGScroll"><div id="WaveDrom_Display_0"></div></div></div>
-            <div id="TXT"><textarea id="InputJSON_0"></textarea></div>
+            <input style="display:none;" id="fileDialogPDF" type="file" nwsaveas="wavedrom.pdf" />
+            <div id="SVG">
+                <div id="SVGScroll">
+                    <div id="WaveDrom_Display_0">                        
+                    </div>
+                </div>
+            </div>
+            <div id="TXT">
+                <textarea id="InputJSON_0">                    
+                </textarea>
+            </div>
         </div>
+        <div id="hidden-div" style="display:none"></div>
+        <!-- <div id="renderArea" style="display: none;"></div> -->
         <script src="init.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21660728-3"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-21660728-3');
-        </script>
         <script>
             // define a handler to catch keyboard shortcuts
             document.onkeyup = function(e) {
